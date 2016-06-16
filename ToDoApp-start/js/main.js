@@ -1,7 +1,37 @@
-$(document).ready(function() {
-});
+alert("TEST");
+
+var input = document.querySelector('new-todo');
+var submit = document.querySelector('.submit');
+var items = document.querySelector('.items');
+
+
+var todo = [];
+
+function addToDo() {
+	console.log("CLICKED");
+	var newTodo = new ToDoItem(input.value,false);
+	todo.push(newTodo);
+	writeTodos();
+}
+
+submit.addEventListener('click',addToDo);
+
+
+function writeTodos() {
+	var string = "";
+
+	todo.forEach(function(todo) {
+		string += "h2>"+todo.content+"</h2>";
+	});
+	list.innerHTML = string;
+}
+/*
 
 var ul = document.getElementById('items'),
+or
+var ul = $(".items"),
+
+
 	incomplete = document.getElementById('incomplete-items'),
 	showAllActive = document.getElementById('show-all active'),
 	showActive = document.getElementById('show-active'),
